@@ -1,0 +1,40 @@
+unit {app_usecase}{modulo}.{usecase};
+
+interface
+
+uses
+  {app_infra}{modulo},
+  {app_tipos}{modulo},
+  {app_error}{modulo},
+  {app_error}Common,
+  {app_usecase}{modulo}.{usecase}Request,
+  Quick.AutoMapper,
+  SysUtils;
+
+type
+
+  T{usecase} = class
+    private
+      {block_repositorios}
+    public
+      constructor Create(
+          {constructor_args}
+      );
+      procedure Ejecutar(const aRequest: T{usecase}Request);
+  end;
+
+implementation
+
+constructor T{usecase}.Create(
+    {constructor_args});
+begin
+  {block_constructor_assignment}
+end;
+
+procedure T{usecase}.Ejecutar(
+    const aRequest: T{usecase}Request);
+begin
+  
+end;
+
+end.

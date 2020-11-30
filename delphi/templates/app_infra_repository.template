@@ -1,0 +1,9 @@
+  IRepositorio%s = interface
+    constructor Create;
+    function Agregar(a%s: T%s): T%s;
+    function Obtener(aId: Integer): T%s;
+    function ObtenerTodos : IList<T%s>;
+    procedure Borrar(aId: Integer);
+    procedure Actualizar(a%s: T%s);
+  end;
+  

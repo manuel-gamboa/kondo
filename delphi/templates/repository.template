@@ -1,0 +1,141 @@
+unit %s%s.Repositorio%s;
+
+interface
+
+uses
+  SysUtils,
+  %s%s.%s,
+  infra.db.Db,
+  spring.collections,
+  IB_Components,
+  IB_Access,
+  IB_Session,
+  IBODataset,
+  IB_Script;
+
+type
+
+  TRepositorio%s = class
+    private
+      fDb : TDatabase;
+    public
+      constructor Create;
+      function Agregar(a%s: T%s): T%s;
+      function Obtener(aId: Integer): T%s;
+      function ObtenerTodos : IList<T%s>;
+      procedure Borrar(aId: Integer);
+      procedure Actualizar(a%s: T%s);
+
+      property Db: TDatabase read fDb;
+  end;
+
+implementation
+
+constructor TRepositorio%s.Create;
+begin
+  fDb := TDatabase.Create;
+end;
+
+function TRepositorio%s.Agregar(a%s: T%s): T%s;
+begin
+  try
+    Db.Command(
+      Format(
+        '',
+        []
+      )
+    );
+  except
+    on E: Exception do
+      raise EDatabaseError.Create(E.Message + #13#10 + E.StackTrace);
+  end;
+end;
+
+function TRepositorio%s.Borrar(aId: Integer);
+begin
+  try
+    Db.Command('delete from %s where id = ' + aId.ToString());
+  except
+    on E: Exception do
+      raise EDatabaseError.Create(E.Message + #13#10 + E.StackTrace);
+  end;
+end;
+
+function TRepositorio%s.Obtener(aId: Integer): T%s;
+var
+  query: TIB_Query;
+begin
+  try
+    try
+      query :=
+        Db.Query(
+          Format(
+            '',
+            []
+          )
+        );
+
+      if query.Eof then
+        Result := nil
+      else
+      begin
+        Result := T%s.Create;
+        Result.SomeProperty := query.FieldByName('some_db_field').AsString;
+      end;
+
+      query.Close;
+    except
+      on E: Exception do
+        raise EDatabaseError.Create(E.Message + #13#10 + E.StackTrace);
+    end;
+  finally
+    if Assigned(query) then FreeAndNil(query);
+  end; 
+end;
+
+function TRepositorio%s.ObtenerTodos : IList<T%s>;
+var
+  query: TIB_Query;
+  %s: T%s;
+begin
+  Result := TCollections.CreateList<T%s>;
+
+  try
+    try
+      query := Db.Query('select * from %s');
+
+      while not query.Eof do
+      begin
+         %s := T%s.Create;
+         %s.Id := query.FieldByName('id').AsInteger;
+
+        Result.Add(%s);
+        query.Next;
+      end;
+
+      query.Close;
+    except
+      on E: Exception do
+        raise EDatabaseError.Create(E.Message + #13#10 + E.StackTrace);
+    end;
+  finally
+    if Assigned(query) then FreeAndNil(query);
+  end;  
+end;
+
+function TRepositorio%s.Actualizar(a%s: T%s);
+begin
+  try
+    Db.Command(
+      Format(
+        '',
+        []
+      )
+    );
+  except
+    on E: Exception do
+      raise EDatabaseError.Create(E.Message + #13#10 + E.StackTrace);
+  end;
+end;
+
+end.

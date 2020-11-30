@@ -1,0 +1,43 @@
+unit {sujeto}Spec;
+
+interface
+
+uses
+  {namespace}{sujeto},
+  Faker,
+  Delphi.Mocks,
+  DUnitX.TestFramework,
+  SysUtils;
+
+type
+
+  [TestFixture]
+  T{sujeto}Spec = class(TObject)
+  public
+    Subject: T{sujeto};
+    [Setup]
+    procedure Setup;
+    [TearDown]
+    procedure TearDown;
+    [Test]
+    procedure DebeHacerAlgo;
+
+  end;
+
+implementation
+
+procedure T{sujeto}Spec.DebeHacerAlgo;
+begin
+end;
+
+procedure T{sujeto}Spec.Setup;
+begin
+end;
+
+procedure T{sujeto}Spec.TearDown;
+begin
+end;
+
+initialization
+  TDUnitX.RegisterTestFixture(T{sujeto}Spec);
+end.

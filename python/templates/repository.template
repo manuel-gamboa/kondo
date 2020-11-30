@@ -1,0 +1,63 @@
+unit {namespace}{modulo}.Repositorio{entidad};
+
+interface
+
+uses
+  SysUtils,
+  {domain_namespace}{modulo}.{entidad},
+  infra.db.Db,
+  System.Generics.Collections,
+  IB_Components,
+  IB_Access,
+  IB_Session,
+  IBODataset,
+  IB_Script;
+
+type
+
+  TRepositorio{entidad} = class
+    private
+      fDb : TDatabase;
+    public
+      constructor Create;
+      function Agregar(a{entidad}: T{entidad}): T{entidad};
+      function Obtener(aId: Integer): T{entidad};
+      function ObtenerTodos : TList<T{entidad}>;
+      procedure Borrar(aId: Integer);
+      procedure Actualizar(a{entidad}: T{entidad});
+
+      property Db: TDatabase read fDb;
+  end;
+
+implementation
+
+constructor TRepositorio{entidad}.Create;
+begin
+end;
+
+function TRepositorio{entidad}.Agregar(a{entidad}: T{entidad}): T{entidad};
+begin
+
+end;
+
+function TRepositorio{entidad}.Borrar(aId: Integer);
+begin
+
+end;
+
+function TRepositorio{entidad}.Obtener(aId: Integer): T{entidad};
+begin
+ 
+end;
+
+function TRepositorio{entidad}.ObtenerTodos : TList<T{entidad}>;
+begin
+  
+end;
+
+function TRepositorio{entidad}.Actualizar(a{entidad}: T{entidad});
+begin
+
+end;
+
+end.

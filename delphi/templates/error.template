@@ -1,0 +1,13 @@
+unit {namespace}{modulo};
+
+interface
+
+uses
+  SysUtils;
+
+type
+  EDefaultError = class(Exception);
+
+implementation
+
+end.

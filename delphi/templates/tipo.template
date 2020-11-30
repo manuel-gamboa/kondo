@@ -1,0 +1,10 @@
+unit {namespace}{modulo};
+
+interface
+
+type
+  TTipoDefault = (tdTipo1, tdTipo2);
+
+implementation
+
+end.

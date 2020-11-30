@@ -1,0 +1,14 @@
+CREATE TABLE {entidad}(
+  {fields_block}
+);
+
+CREATE GENERATOR GEN_{entidad}_ID;
+SET GENERATOR GEN_{entidad}_ID TO 0;
+
+CREATE TRIGGER {entidad}_BI FOR {entidad} 
+ACTIVE BEFORE INSERT POSITION 0 
+AS 
+BEGIN 
+IF (NEW.ID IS NULL) THEN 
+    NEW.ID = GEN_ID(GEN_{entidad}_ID, 1); 
+END; 

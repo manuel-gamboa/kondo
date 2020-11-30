@@ -1,0 +1,18 @@
+unit %s%s.%s;
+
+interface
+
+uses
+  %s
+
+type
+  T%s = class
+    private
+      %s
+    public
+      %s
+  end;
+
+implementation
+
+end.

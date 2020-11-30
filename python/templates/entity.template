@@ -1,0 +1,26 @@
+unit {domain_entity}{modulo}.{entidad};
+
+interface
+
+uses
+  {uses_block}
+
+type
+  T{entidad} = class
+    private
+      {fields_block}
+    public
+      {constructor_block}
+
+      {properties_block}
+  end;
+
+implementation
+
+procedure T{entidad}.Create(
+  {constructor_args});
+begin
+  {constructor_asign}
+end;
+
+end.

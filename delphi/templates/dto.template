@@ -1,0 +1,18 @@
+unit %s%s.Datos%s;
+
+interface
+
+uses
+  %s
+
+type
+  TDatos%s = class
+    private
+      %s
+    public
+      %s
+  end;
+
+implementation
+
+end.

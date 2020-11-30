@@ -1,0 +1,43 @@
+unit %s%s.%s;
+
+interface
+
+uses
+  %s%s,
+  %s,
+  %s,
+  quick.automapper,
+  spring.collections,
+  sysutils;
+
+type
+
+  T%s = class
+    private
+      %s
+      %s
+    public
+      constructor Create(
+        %s
+      );
+      procedure Ejecutar();
+      
+      %s
+  end;
+
+implementation
+
+constructor T%s.Create(
+  %s)
+begin
+  %s
+end;
+
+procedure T%s.Ejecutar();
+begin
+  {
+    Logica de aplicacion
+  }
+end;
+
+end.

@@ -1,0 +1,18 @@
+unit {app_dto}{modulo}.Datos{entidad};
+
+interface
+
+uses
+  {uses_block}
+
+type
+  TDatos{entidad} = class
+    private
+      {fields_block}
+    public
+      {properties_block}
+  end;
+
+implementation
+
+end.

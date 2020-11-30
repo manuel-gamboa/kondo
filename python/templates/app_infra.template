@@ -1,0 +1,41 @@
+unit {namespace}{modulo};
+
+interface
+
+uses
+  {namespace}Common,
+  spring.collections;
+
+type
+  {$M+}
+
+  {$M-}
+
+implementation
+
+end.
+
+
+unit aplicacion.interfaces.Ventas;
+
+interface
+
+uses
+  spring.collections;
+
+type
+  {$M+}
+
+  IRepositorioVentas = interface(IRepositorio)
+    ['{FAE332D1-63BF-4F71-B184-A484F6323B30}']
+    function ObtenerVenta(const Id: Integer): TVenta;
+    function ObtenerVentasACreditoParaCliente(
+        const aClienteId: Integer; const aExcluirLiquidadas: Boolean = True): IList<TVenta>;
+    procedure ActualizarSaldoDeCredito(const aVentaId: Integer; const aNuevoSaldo: Currency);
+  end;
+
+  {$M-}
+
+implementation
+
+end.

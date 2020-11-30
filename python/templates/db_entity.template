@@ -1,0 +1,31 @@
+unit {namespace}.{entidad}Entity;
+
+interface
+
+uses
+  Aurelius.Mapping.Attributes,
+  Aurelius.Types.Blob,
+  Aurelius.Types.Nullable,
+  Aurelius.Types.Proxy;
+
+type
+  [Entity]
+  [Table('{entidad}')]
+  [Sequence('GEN_{entidad}_ID')]
+  [Id('fId', TIdGenerator.IdentityOrSequence)]
+  TProductoDbEntity = class
+    private
+      {fields_block}
+
+    public
+
+      {properties_block}
+
+  end;
+
+implementation
+
+initialization
+ RegisterEntity(TProductoDbEntity);
+
+end.

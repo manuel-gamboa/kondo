@@ -1,0 +1,15 @@
+unit %s%s;
+
+interface
+
+uses
+  %s
+  spring.collections,
+  SysUtils;
+
+type
+%s
+
+implementation
+
+end.
